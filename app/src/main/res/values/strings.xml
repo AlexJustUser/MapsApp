@@ -4,4 +4,5 @@
     <string name="password">Enter password</string>
     <string name="ok">Ok</string>
     <string name="remember">remember me</string>
+    <string name="link">http://www.alarstudios.com/test/auth.cgi</string>
 </resources>
