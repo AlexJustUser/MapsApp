@@ -1,20 +1,22 @@
 package com.example.testapp;
 
+import android.view.View;
+
 public class Presenter {
 
-    interface EnterActivity{
+    private Model model;
+    private View view;
 
-        void showProgress();
-
-        void hideProgress();
-
-        void setMessage(String string);
-
+    public Presenter(View view) {
+        this.model = new Model();
+        this.view = view;
     }
 
-    interface ListActivity{
+    public interface View{
 
-
+        void updateUserInfoTextView(String info);
+        void showProgressBar();
+        void hideProgressBar();
 
     }
 
