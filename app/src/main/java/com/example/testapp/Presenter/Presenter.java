@@ -1,6 +1,6 @@
-package com.example.testapp;
+package com.example.testapp.Presenter;
 
-import android.view.View;
+import com.example.testapp.Model.Model;
 
 public class Presenter {
 
@@ -12,12 +12,12 @@ public class Presenter {
         this.view = view;
     }
 
-    public interface View{
 
+
+    public interface View{
         void updateUserInfoTextView(String info);
         void showProgressBar();
         void hideProgressBar();
-
     }
 
 }
