@@ -1,5 +1,7 @@
 package com.example.testapp.Model;
 
+import com.example.testapp.R;
+
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -18,7 +20,7 @@ public class ApiWorker {
 
         Retrofit retrofit = new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl("link")
+                .baseUrl("http://www.alarstudios.com")
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(MoshiConverterFactory.create())
                 .client(okHttpClient)

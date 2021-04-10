@@ -12,7 +12,10 @@ public class Presenter {
         this.view = view;
     }
 
+    public void checkAccess(String login, String password){
+        model.sendAccessData(login, password);
 
+    }
 
     public interface View{
         void updateUserInfoTextView(String info);
