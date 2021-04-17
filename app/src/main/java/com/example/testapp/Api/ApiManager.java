@@ -1,19 +1,21 @@
-package com.example.testapp.Model;
+package com.example.testapp.Api;
 
 
 import android.util.Log;
-import com.example.testapp.AccessStatus;
-import com.example.testapp.Presenter.Presenter;
+
+import com.example.testapp.login.LoginResponse;
+import com.example.testapp.login.Presenter;
+
 import java.util.concurrent.TimeUnit;
 import rx.Subscriber;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-public class Model {
+public class ApiManager {
 
     private Subscription subscription;
-    private static final String TAG = Model.class.getSimpleName();
+    private static final String TAG = ApiManager.class.getSimpleName();
 
 
 
@@ -25,8 +27,7 @@ public class Model {
                     .debounce(500, TimeUnit.MILLISECONDS)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .unsubscribeOn(Schedulers.io())
-                    .subscribe(new Subscriber<AccessStatus>() {
+                    .subscribe(new Subscriber<LoginResponse>() {
                         @Override
                         public void onCompleted() {
                             Log.d(TAG, "In onCompleted()");
@@ -39,9 +40,9 @@ public class Model {
                         }
 
                         @Override
-                        public void onNext(AccessStatus accessStatus) {
+                        public void onNext(LoginResponse loginResponse) {
                             Log.d(TAG, "In onNext()");
-                            presenter.giveAccess(accessStatus);
+                            presenter.giveAccess(loginResponse);
                         }
                     });
 

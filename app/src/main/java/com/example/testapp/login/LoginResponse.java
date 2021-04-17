@@ -1,6 +1,6 @@
-package com.example.testapp;
+package com.example.testapp.login;
 
-public class AccessStatus {
+public class LoginResponse {
     String status;
     String code;
 

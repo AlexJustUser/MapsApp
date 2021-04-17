@@ -3,6 +3,9 @@
     <string name="login">Enter login</string>
     <string name="password">Enter password</string>
     <string name="ok">Ok</string>
+    <string name="success">Success</string>
+    <string name="error">Error</string>
+    <string name="insert">Insert All Data</string>
     <string name="remember">remember me</string>
     <string name="link">http://www.alarstudios.com</string>
 </resources>
