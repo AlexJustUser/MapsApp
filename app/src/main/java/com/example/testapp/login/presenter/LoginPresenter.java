@@ -1,19 +1,21 @@
-package com.example.testapp.login;
+package com.example.testapp.login.presenter;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.example.testapp.Api.ApiManager;
+import com.example.testapp.api.ApiManager;
 import com.example.testapp.R;
+import com.example.testapp.api.model.LoginResponse;
+import com.example.testapp.login.ui.LoginView;
 
-public class Presenter implements IPresenter{
+public class LoginPresenter implements ILoginPresenter {
 
     private ApiManager apiManager;
-    private View view;
+    private LoginView view;
     private Context context;
     private SharedPreferences prefs = null;
 
-    public Presenter(View view, Context context) {
+    public LoginPresenter(LoginView view, Context context) {
         this.apiManager = new ApiManager();
         this.view = view;
         this.context = context;
@@ -25,20 +27,12 @@ public class Presenter implements IPresenter{
     }
 
     public void giveAccess(LoginResponse loginResponse){
+        view.setProgressBarVisible(false);
         if(loginResponse.getStatus().equals("ok")){
-            view.hideProgressBar();
             view.updateUserInfoTextView(context.getString(R.string.success));
         }
         else{
-            view.hideProgressBar();
             view.updateUserInfoTextView(context.getString(R.string.error));
         }
     }
-
-    public interface View{
-        void updateUserInfoTextView(String info);
-        void showProgressBar();
-        void hideProgressBar();
-    }
-
 }

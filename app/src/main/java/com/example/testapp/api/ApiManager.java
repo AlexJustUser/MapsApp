@@ -1,12 +1,13 @@
-package com.example.testapp.Api;
+package com.example.testapp.api;
 
 
 import android.util.Log;
 
-import com.example.testapp.login.LoginResponse;
-import com.example.testapp.login.Presenter;
+import com.example.testapp.api.model.LoginResponse;
+import com.example.testapp.login.presenter.LoginPresenter;
 
 import java.util.concurrent.TimeUnit;
+
 import rx.Subscriber;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
@@ -18,9 +19,7 @@ public class ApiManager {
     private static final String TAG = ApiManager.class.getSimpleName();
 
 
-
-    public void sendAccessData(String login, String password, final Presenter presenter) {
-
+    public void sendAccessData(String login, String password, final LoginPresenter presenter) {
         try {
             subscription = ApiWorker.getApiService()
                     .checkAuth(login, password)
@@ -45,12 +44,8 @@ public class ApiManager {
                             presenter.giveAccess(loginResponse);
                         }
                     });
-
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
-
-
 }

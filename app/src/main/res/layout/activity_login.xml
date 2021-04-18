@@ -1,90 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/background"
-    android:id="@+id/main_login_layout"
-    android:layout_gravity="center">
+    android:background="@drawable/background">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-            android:id="@+id/login_text_login"
-            app:layout_constraintTop_toTopOf="@id/main_login_layout"
-            app:layout_constraintBottom_toBottomOf="@id/main_login_layout"
-            app:layout_constraintLeft_toLeftOf="@id/main_login_layout"
-            app:layout_constraintRight_toRightOf="@id/main_login_layout"
-            android:layout_width="@dimen/size_300dp"
-            android:layout_height="@dimen/size_35dp"
-            android:layout_marginBottom="@dimen/size_80dp"
+            android:id="@+id/login_edit"
+            android:layout_width="300dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
             android:background="@drawable/background_white_round_corner"
             android:gravity="center"
-            android:layout_gravity="center"
             android:hint="@string/login"
+            android:inputType="textEmailAddress"
             android:padding="@dimen/size_6dp"
             android:textColor="@color/colorWhite"
             android:textColorHint="@color/colorTextHint"
-            android:inputType="textCapSentences"
-            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_"
             android:textSize="@dimen/text_size_20sp" />
 
         <EditText
-            android:id="@+id/login_text_password"
-            app:layout_constraintTop_toBottomOf="@id/login_text_login"
-            app:layout_constraintLeft_toLeftOf="@id/main_login_layout"
-            app:layout_constraintRight_toRightOf="@id/main_login_layout"
-            android:layout_width="@dimen/size_300dp"
-            android:layout_height="@dimen/size_35dp"
+            android:id="@+id/login_password_edit"
+            android:layout_width="300dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
             android:layout_marginTop="@dimen/size_20dp"
             android:background="@drawable/background_white_round_corner"
             android:gravity="center"
-            android:layout_gravity="center"
             android:hint="@string/password"
+            android:inputType="textVisiblePassword"
             android:padding="@dimen/size_6dp"
             android:textColor="@color/colorWhite"
             android:textColorHint="@color/colorTextHint"
-            android:inputType="textCapSentences"
-            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_"
             android:textSize="@dimen/text_size_20sp" />
 
         <CheckBox
             android:id="@+id/login_checkBox"
-            app:layout_constraintTop_toBottomOf="@id/login_text_password"
-            app:layout_constraintLeft_toLeftOf="@id/main_login_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorWhite"
-            android:layout_marginLeft="@dimen/size_55dp"
             android:layout_marginTop="@dimen/size_10dp"
             android:buttonTint="@color/colorWhite"
-            android:text="@string/remember"/>
+            android:text="@string/remember"
+            android:textColor="@color/colorWhite" />
 
         <Button
             android:id="@+id/login_button"
-            app:layout_constraintTop_toBottomOf="@id/login_checkBox"
-            app:layout_constraintLeft_toLeftOf="@id/main_login_layout"
-            app:layout_constraintRight_toRightOf="@id/main_login_layout"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/size_30dp"
-            android:layout_marginTop="@dimen/size_10dp"
+            android:layout_height="30dp"
             android:layout_gravity="center"
+            android:layout_marginTop="@dimen/size_10dp"
             android:background="@drawable/background_white_round_corner"
-            android:padding="@dimen/size_2dp"
-            android:scaleType="centerCrop"
             android:text="@string/ok"
-            android:onClick="onLoginButtonClick"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/text_size_18sp" />
+    </LinearLayout>
 
-        <ProgressBar
-            android:id="@+id/login_progressbar"
-            style="?android:attr/progressBarStyleLarge"
-            app:layout_constraintTop_toTopOf="@id/main_login_layout"
-            app:layout_constraintBottom_toBottomOf="@id/main_login_layout"
-            app:layout_constraintLeft_toLeftOf="@id/main_login_layout"
-            app:layout_constraintRight_toRightOf="@id/main_login_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:visibility="gone" />
+    <ProgressBar
+        android:id="@+id/login_progressbar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
