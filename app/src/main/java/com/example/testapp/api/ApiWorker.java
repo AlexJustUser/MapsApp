@@ -1,14 +1,11 @@
-package com.example.testapp.Api;
+package com.example.testapp.api;
 
 
 
 import com.example.testapp.BuildConfig;
 
-import okhttp3.OkHttpClient;
-import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.moshi.MoshiConverterFactory;
 
 public class ApiWorker {
@@ -29,8 +26,8 @@ public class ApiWorker {
         return retrofit;
     }
 
-    public static ApiService getApiService(){
-        ApiService apiService = getRetrofit().create(ApiService.class);
+    public static Api getApiService(){
+        Api apiService = getRetrofit().create(Api.class);
         return apiService;
     }
 }

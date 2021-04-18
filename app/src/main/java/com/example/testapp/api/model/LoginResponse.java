@@ -1,4 +1,4 @@
-package com.example.testapp.login;
+package com.example.testapp.api.model;
 
 public class LoginResponse {
     String status;
