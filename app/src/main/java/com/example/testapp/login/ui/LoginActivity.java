@@ -4,11 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
-
 import com.example.testapp.R;
 import com.example.testapp.databinding.ActivityLoginBinding;
 import com.example.testapp.login.presenter.ILoginPresenter;
@@ -36,6 +32,9 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
             } else {
                 setProgressBarVisible(true);
                 presenter.checkAccess(binding.loginEdit.getText().toString(), binding.loginPasswordEdit.getText().toString());
+                if(binding.loginCheckBox.isChecked()){
+                    //logic to save login and password if user wants it
+                }
             }
         });
     }
