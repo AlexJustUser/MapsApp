@@ -10,24 +10,18 @@ import retrofit2.converter.moshi.MoshiConverterFactory;
 
 public class ApiWorker {
 
-    private static Retrofit getRetrofit() {
-
-//        HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
-//        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-//
-//        OkHttpClient okHttpClient=new OkHttpClient.Builder().addInterceptor(httpLoggingInterceptor).build();
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BuildConfig.SERVER_URL)
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .addConverterFactory(MoshiConverterFactory.create())
-                //.client(okHttpClient)
-                .build();
-        return retrofit;
-    }
+    private static Retrofit retrofit=null;
 
     public static Api getApiService(){
-        Api apiService = getRetrofit().create(Api.class);
-        return apiService;
+
+        if (retrofit==null){
+            retrofit = new Retrofit.Builder()
+            .baseUrl(BuildConfig.SERVER_URL)
+            .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+            .addConverterFactory(MoshiConverterFactory.create())
+            .build();
+        }
+
+        return retrofit.create(Api.class);
     }
 }
