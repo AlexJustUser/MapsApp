@@ -2,6 +2,7 @@ package com.example.testapp.login.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -9,6 +10,7 @@ import com.example.testapp.R;
 import com.example.testapp.databinding.ActivityLoginBinding;
 import com.example.testapp.login.presenter.ILoginPresenter;
 import com.example.testapp.login.presenter.LoginPresenter;
+import com.example.testapp.mapslist.ui.MapsListActivity;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
 
@@ -35,6 +37,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
                 if(binding.loginCheckBox.isChecked()){
                     //logic to save login and password if user wants it
                 }
+                Intent intent = new Intent(LoginActivity.this, MapsListActivity.class);
+                startActivity(intent);
             }
         });
     }

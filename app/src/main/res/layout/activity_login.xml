@@ -37,7 +37,7 @@
             android:background="@drawable/background_white_round_corner"
             android:gravity="center"
             android:hint="@string/password"
-            android:inputType="textVisiblePassword"
+            android:inputType="textPassword"
             android:padding="@dimen/size_6dp"
             android:textColor="@color/colorWhite"
             android:textColorHint="@color/colorTextHint"

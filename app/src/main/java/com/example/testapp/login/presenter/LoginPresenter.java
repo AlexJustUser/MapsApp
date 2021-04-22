@@ -2,7 +2,6 @@ package com.example.testapp.login.presenter;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-
 import com.example.testapp.api.ApiManager;
 import com.example.testapp.R;
 import com.example.testapp.api.model.LoginResponse;
@@ -19,19 +18,20 @@ public class LoginPresenter implements ILoginPresenter {
         this.apiManager = new ApiManager();
         this.view = view;
         this.context = context;
-        prefs = context.getSharedPreferences("com.example.testapp", context.MODE_PRIVATE);
+        prefs = context.getSharedPreferences(context.getString(R.string.package_name), context.MODE_PRIVATE);
     }
 
+    @Override
     public void checkAccess(String login, String password){
         apiManager.sendAccessData(login, password, this);
     }
 
+    @Override
     public void giveAccess(LoginResponse loginResponse){
         view.setProgressBarVisible(false);
-        if(loginResponse.getStatus().equals("ok")){
-            view.updateUserInfoTextView(context.getString(R.string.success));
+        if(loginResponse.getStatus().equals(context.getString(R.string.ok))){
             SharedPreferences.Editor editor = prefs.edit();
-            editor.putString("code", loginResponse.getCode());
+            editor.putString(context.getString(R.string.code), loginResponse.getCode());
             editor.commit();
         }
         else{

@@ -1,9 +1,6 @@
 package com.example.testapp.api;
 
-
-
 import com.example.testapp.BuildConfig;
-
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.moshi.MoshiConverterFactory;
