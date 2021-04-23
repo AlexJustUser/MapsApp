@@ -2,7 +2,6 @@ package com.example.testapp.mapslist.ui;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,7 +10,6 @@ import com.example.testapp.api.model.MapResponse;
 import com.example.testapp.databinding.ActivityMapsListBinding;
 import com.example.testapp.mapslist.presenter.IMapsListPresenter;
 import com.example.testapp.mapslist.presenter.MapsListPresenter;
-
 import java.util.List;
 
 public class MapsListActivity extends AppCompatActivity implements MapsListView, MyRecyclerViewAdapter.ItemClickListener {
@@ -43,6 +41,7 @@ public class MapsListActivity extends AppCompatActivity implements MapsListView,
             }
         };
         binding.listOfMaps.addOnScrollListener(scrollListener);
+
         presenter.getMapsList("1");
     }
 
@@ -70,7 +69,7 @@ public class MapsListActivity extends AppCompatActivity implements MapsListView,
 
     @Override
     public void onItemClick(View view, int position) {
-        Toast.makeText(this, "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
+        adapter.getItem(position).
     }
 
 }

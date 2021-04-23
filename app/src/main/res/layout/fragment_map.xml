@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <Button
+        android:id="@+id/backward_button"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/size_10dp"
+        android:background="@drawable/background_white_round_corner"
+        android:text="@string/backward"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/text_size_18sp" />
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="100">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="60">
+
+            <com.google.android.gms.maps.MapView
+                android:id="@+id/map_point"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="40"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/size_20dp"
+                android:textColor="@color/colorWhite"
+                android:text="@string/id"
+                android:textSize="@dimen/text_size_30sp"/>
+
+            <TextView
+                android:id="@+id/id_map_point"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/size_20dp"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_size_30sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/size_20dp"
+                android:textColor="@color/colorWhite"
+                android:text="@string/country"
+                android:textSize="@dimen/text_size_30sp"/>
+
+            <TextView
+                android:id="@+id/country_map_point"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/size_20dp"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_size_30sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/size_20dp"
+                android:textColor="@color/colorWhite"
+                android:text="@string/name"
+                android:textSize="@dimen/text_size_30sp"/>
+
+            <TextView
+                android:id="@+id/name_map_point"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/size_20dp"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_size_30sp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

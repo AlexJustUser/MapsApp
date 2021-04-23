@@ -4,6 +4,10 @@
     <string name="package_name">com.example.testapp</string>
     <string name="login">Enter login</string>
     <string name="password">Enter password</string>
+    <string name="id">id:</string>
+    <string name="country">country:</string>
+    <string name="backward">назад</string>
+    <string name="name">name:</string>
     <string name="ok">ok</string>
     <string name="code">code</string>
     <string name="success">Success</string>

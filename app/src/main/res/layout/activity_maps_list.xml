@@ -10,4 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
+    <fragment
+        android:name="com.example.testapp.mapslist.ui.MapFragment"
+        android:id="@+id/map_list_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 </RelativeLayout>
