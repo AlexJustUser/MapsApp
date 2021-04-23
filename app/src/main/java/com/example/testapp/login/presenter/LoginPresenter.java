@@ -33,6 +33,7 @@ public class LoginPresenter implements ILoginPresenter {
             SharedPreferences.Editor editor = prefs.edit();
             editor.putString(context.getString(R.string.code), loginResponse.getCode());
             editor.commit();
+            view.giveAccess();
         }
         else{
             view.updateUserInfoTextView(context.getString(R.string.error));

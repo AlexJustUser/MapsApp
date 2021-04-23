@@ -37,8 +37,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
                 if(binding.loginCheckBox.isChecked()){
                     //logic to save login and password if user wants it
                 }
-                Intent intent = new Intent(LoginActivity.this, MapsListActivity.class);
-                startActivity(intent);
             }
         });
     }
@@ -55,6 +53,12 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
             binding.loginProgressbar.setVisibility(View.VISIBLE);
         else
             binding.loginProgressbar.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void giveAccess(){
+        Intent intent = new Intent(LoginActivity.this, MapsListActivity.class);
+        startActivity(intent);
     }
 
     public void setLoginButtonEnable(Boolean isEnable) {
