@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@drawable/background">
 
     <Button
         android:id="@+id/backward_button"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:layout_gravity="center"
         android:layout_marginTop="@dimen/size_10dp"
+        android:layout_marginBottom="@dimen/size_10dp"
         android:background="@drawable/background_white_round_corner"
         android:text="@string/backward"
         android:textColor="@color/colorWhite"
@@ -26,13 +27,16 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="60">
+            android:layout_weight="60"
+            android:layout_marginBottom="@dimen/size_10dp">
 
-            <com.google.android.gms.maps.MapView
-                android:id="@+id/map_point"
-                xmlns:android="http://schemas.android.com/apk/res/android"
+            <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/map"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                tools:context="com.example.testapp.map.ui.MapActivity" />
 
         </RelativeLayout>
 
@@ -58,7 +62,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="@dimen/size_20dp"
                 android:textColor="@color/colorWhite"
-                android:textSize="@dimen/text_size_30sp"/>
+                android:textSize="@dimen/text_size_10sp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -76,7 +80,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="@dimen/size_20dp"
                 android:textColor="@color/colorWhite"
-                android:textSize="@dimen/text_size_30sp"/>
+                android:textSize="@dimen/text_size_10sp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -94,10 +98,10 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="@dimen/size_20dp"
                 android:textColor="@color/colorWhite"
-                android:textSize="@dimen/text_size_30sp"/>
+                android:textSize="@dimen/text_size_10sp"/>
 
         </LinearLayout>
 
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>

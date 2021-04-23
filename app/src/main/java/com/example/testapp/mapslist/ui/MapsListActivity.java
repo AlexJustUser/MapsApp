@@ -1,5 +1,6 @@
 package com.example.testapp.mapslist.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.testapp.api.model.DataResponse;
 import com.example.testapp.api.model.MapResponse;
 import com.example.testapp.databinding.ActivityMapsListBinding;
+import com.example.testapp.map.ui.MapActivity;
 import com.example.testapp.mapslist.presenter.IMapsListPresenter;
 import com.example.testapp.mapslist.presenter.MapsListPresenter;
 import java.util.List;
@@ -19,6 +21,7 @@ public class MapsListActivity extends AppCompatActivity implements MapsListView,
     private EndlessRecyclerViewScrollListener scrollListener;
     private MyRecyclerViewAdapter adapter;
     private List<MapResponse> mapsList;
+    private Intent intent;
     private MyRecyclerViewAdapter myRecyclerViewAdapter;
 
     @Override
@@ -69,7 +72,13 @@ public class MapsListActivity extends AppCompatActivity implements MapsListView,
 
     @Override
     public void onItemClick(View view, int position) {
-        adapter.getItem(position).
+        intent = new Intent(MapsListActivity.this, MapActivity.class);
+        intent.putExtra("id", adapter.getItem(position).getId());
+        intent.putExtra("name", adapter.getItem(position).getName());
+        intent.putExtra("country", adapter.getItem(position).getCountry());
+        intent.putExtra("lon", adapter.getItem(position).getLon());
+        intent.putExtra("lat", adapter.getItem(position).getLat());
+        startActivity(intent);
     }
 
 }

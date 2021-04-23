@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="MyApi" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
         <activity android:name=".login.ui.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,6 +29,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".mapslist.ui.MapsListActivity" />
+        <activity android:name=".map.ui.MapActivity" />
     </application>
 
 </manifest>
