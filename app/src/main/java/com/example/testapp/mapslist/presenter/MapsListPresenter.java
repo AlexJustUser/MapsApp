@@ -3,14 +3,11 @@ package com.example.testapp.mapslist.presenter;
 import android.content.Context;
 import android.content.SharedPreferences;
 import com.example.testapp.R;
-import com.example.testapp.api.ApiManager;
-import com.example.testapp.api.model.DataResponse;
-import com.example.testapp.api.model.MapResponse;
+import com.example.testapp.manager.api.ApiManager;
+import com.example.testapp.manager.api.model.DataResponse;
 import com.example.testapp.mapslist.ui.MapsListView;
-import java.util.List;
 
 public class MapsListPresenter implements IMapsListPresenter {
-
     private ApiManager apiManager;
     private MapsListView view;
     private Context context;
@@ -24,8 +21,8 @@ public class MapsListPresenter implements IMapsListPresenter {
     }
 
     @Override
-    public void getMapsList(String p){
-        apiManager.getMapsList(prefs.getString(context.getString(R.string.code), ""), p, this);
+    public void getMapsList(int pageNum){
+        apiManager.getMapsList(prefs.getString(context.getString(R.string.code), ""), pageNum, this);
     }
 
     @Override

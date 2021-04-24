@@ -1,13 +1,12 @@
-package com.example.testapp.api;
+package com.example.testapp.manager.api;
 
 import android.util.Log;
 
-import com.example.testapp.api.model.DataResponse;
-import com.example.testapp.api.model.MapResponse;
-import com.example.testapp.api.model.LoginResponse;
+import com.example.testapp.manager.api.model.DataResponse;
+import com.example.testapp.manager.api.model.LoginResponse;
 import com.example.testapp.login.presenter.ILoginPresenter;
 import com.example.testapp.mapslist.presenter.IMapsListPresenter;
-import java.util.List;
+
 import java.util.concurrent.TimeUnit;
 import rx.Subscriber;
 import rx.Subscription;
@@ -15,7 +14,6 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 public class ApiManager {
-
     private Subscription subscription;
     private static final String TAG = ApiManager.class.getSimpleName();
 
@@ -49,10 +47,10 @@ public class ApiManager {
         }
     }
 
-    public void getMapsList(String code, String p, final IMapsListPresenter presenter) {
+    public void getMapsList(String code, int pageNum, final IMapsListPresenter presenter) {
         try {
             subscription = ApiWorker.getApiService()
-                    .getMapsList(code, p)
+                    .getMapsList(code, String.valueOf(pageNum))
                     .debounce(500, TimeUnit.MILLISECONDS)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())

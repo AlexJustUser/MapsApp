@@ -1,4 +1,4 @@
-package com.example.testapp.api;
+package com.example.testapp.manager.api;
 
 import com.example.testapp.BuildConfig;
 import retrofit2.Retrofit;
@@ -10,7 +10,6 @@ public class ApiWorker {
     private static Retrofit retrofit=null;
 
     public static Api getApiService(){
-
         if (retrofit==null){
             retrofit = new Retrofit.Builder()
             .baseUrl(BuildConfig.SERVER_URL)
@@ -18,7 +17,6 @@ public class ApiWorker {
             .addConverterFactory(MoshiConverterFactory.create())
             .build();
         }
-
         return retrofit.create(Api.class);
     }
 }

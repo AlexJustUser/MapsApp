@@ -1,4 +1,4 @@
-package com.example.testapp.api.model;
+package com.example.testapp.manager.api.model;
 
 public class MapResponse {
 

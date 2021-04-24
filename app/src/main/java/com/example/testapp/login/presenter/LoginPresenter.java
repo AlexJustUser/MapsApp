@@ -2,13 +2,12 @@ package com.example.testapp.login.presenter;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import com.example.testapp.api.ApiManager;
+import com.example.testapp.manager.api.ApiManager;
 import com.example.testapp.R;
-import com.example.testapp.api.model.LoginResponse;
+import com.example.testapp.manager.api.model.LoginResponse;
 import com.example.testapp.login.ui.LoginView;
 
 public class LoginPresenter implements ILoginPresenter {
-
     private ApiManager apiManager;
     private LoginView view;
     private Context context;
@@ -32,7 +31,7 @@ public class LoginPresenter implements ILoginPresenter {
         if(loginResponse.getStatus().equals(context.getString(R.string.ok))){
             SharedPreferences.Editor editor = prefs.edit();
             editor.putString(context.getString(R.string.code), loginResponse.getCode());
-            editor.commit();
+            editor.apply();
             view.giveAccess();
         }
         else{

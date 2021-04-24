@@ -1,11 +1,8 @@
 package com.example.testapp.mapslist.presenter;
 
-import com.example.testapp.api.model.DataResponse;
-import com.example.testapp.api.model.MapResponse;
-import java.util.List;
+import com.example.testapp.manager.api.model.DataResponse;
 
 public interface IMapsListPresenter {
-
-    void getMapsList(String p);
+    void getMapsList(int pageNum);
     void displayMapsList(DataResponse dataRespons);
 }

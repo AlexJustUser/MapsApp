@@ -1,9 +1,8 @@
-package com.example.testapp.api.model;
+package com.example.testapp.manager.api.model;
 
 import java.util.List;
 
 public class DataResponse {
-
     private String status;
     private String page;
     private List<MapResponse> data;
@@ -31,5 +30,4 @@ public class DataResponse {
     public void setData(List<MapResponse> data) {
         this.data = data;
     }
-
 }
