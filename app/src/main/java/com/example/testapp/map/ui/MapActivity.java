@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
-
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.testapp.R;
 import com.example.testapp.databinding.ActivityMapBinding;
@@ -26,8 +25,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         binding = ActivityMapBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
         binding.backwardButton.setOnTouchListener(new View.OnTouchListener() {
@@ -59,8 +57,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         googleMap.addMarker(new MarkerOptions()
-                .position(new LatLng(Float.parseFloat(intent.getStringExtra("lat")), Float.parseFloat(intent.getStringExtra("lon"))))
-                .title("Marker" + intent.getStringExtra("name")));
+                .position(new LatLng(Float.parseFloat(intent.getStringExtra("lat")), Float.parseFloat(intent.getStringExtra("lon")))));
     }
 
 
