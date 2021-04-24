@@ -12,6 +12,7 @@
         android:layout_height="30dp"
         android:layout_marginTop="@dimen/size_10dp"
         android:layout_marginBottom="@dimen/size_10dp"
+        android:layout_marginLeft="@dimen/size_10dp"
         android:background="@drawable/background_white_round_corner"
         android:text="@string/backward"
         android:textColor="@color/colorWhite"

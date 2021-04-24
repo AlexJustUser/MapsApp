@@ -2,8 +2,10 @@ package com.example.testapp.login.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
 import com.example.testapp.R;
@@ -25,18 +27,31 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         init();
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     public void init() {
         presenter = new LoginPresenter(this, this);
 
-        binding.loginButton.setOnClickListener(v -> {
-            if (binding.loginEdit.getText().toString().equals("") || binding.loginPasswordEdit.getText().toString().equals("")) {
-                updateUserInfoTextView(getResources().getString(R.string.insert));
-            } else {
-                setProgressBarVisible(true);
-                presenter.checkAccess(binding.loginEdit.getText().toString(), binding.loginPasswordEdit.getText().toString());
-                if(binding.loginCheckBox.isChecked()){
-                    //logic to save login and password if user wants it
+        binding.loginButton.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    binding.loginButton.setTextColor(getResources().getColor(R.color.colorBlue));
+                    binding.loginButton.setBackground(getResources().getDrawable(R.drawable.background_white_round_solid));
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    if (binding.loginEdit.getText().toString().equals("") || binding.loginPasswordEdit.getText().toString().equals("")) {
+                        updateUserInfoTextView(getResources().getString(R.string.insert));
+                    } else {
+                        setProgressBarVisible(true);
+                        presenter.checkAccess(binding.loginEdit.getText().toString(), binding.loginPasswordEdit.getText().toString());
+                        if(binding.loginCheckBox.isChecked()){
+                            //logic to save login and password if user wants it
+                        }
+                    }
+                    binding.loginButton.setTextColor(getResources().getColor(R.color.colorWhite));
+                    binding.loginButton.setBackground(getResources().getDrawable(R.drawable.background_white_round_corner));
                 }
+
+                return true;
             }
         });
     }
